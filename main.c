@@ -179,8 +179,7 @@ int main(void)
 	const uint8_t SnsrMode = 0b00; //Continuous measurement mode
 
 	//Config 1 register
-	I2C_WrReg(R_Config1, (SmplAverage<<5)|(OutputRate<<3)|MeasurementCfg
-			);
+	I2C_WrReg(R_Config1, (SmplAverage<<5)|(OutputRate<<3)|MeasurementCfg);
 	//Config 2 register
 	I2C_WrReg(R_Config2, (SnsrGain<<5));
 	//Mode register
