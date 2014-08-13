@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/I..\..\..\workspace\HMC5883L2\cmsis_boot /I..\..\..\workspace\HMC5883L2\cmsis_core /I..\..\..\workspace /I..\..\..\workspace\HMC5883L2\stm32_lib\inc /I..\..\..\workspace\HMC5883L2\stm32_lib /I..\..\..\workspace\HMC5883L2">
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="147d0922ce7">
+      </source>
+      <source file="..\..\..\cmsis_core\core_cm0.h" lastModified="147d09230e2">
+         <include file="..\..\..\cmsis_core\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis_core\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\stm32_lib\inc\stm32f0xx_gpio.h" lastModified="147d0922cb7">
+         <include file="..\..\..\cmsis_boot\stm32f0xx.h"/>
+      </source>
+      <source file="..\..\..\stm32_lib\inc\stm32f0xx_rcc.h" lastModified="147d0922cdf">
+         <include file="..\..\..\cmsis_boot\stm32f0xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f0xx.h" lastModified="147d0bad166">
+         <include file="..\..\..\cmsis_core\core_cm0.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f0xx.h"/>
+      </source>
+      <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="147d0922ce2">
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\main.c" lastModified="147d0e3d61f">
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_gpio.h"/>
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_rcc.h"/>
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_i2c.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cmInstr.h" lastModified="147d09234dd">
+      </source>
+      <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="147d0922cc7">
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_gpio.h"/>
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_core\core_cmFunc.h" lastModified="147d09234d4">
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="147d0922cee">
+         <include file="..\..\..\cmsis_boot\stm32f0xx.h"/>
+      </source>
+      <source file="..\..\..\stm32_lib\inc\stm32f0xx_i2c.h" lastModified="147d0923099">
+         <include file="..\..\..\cmsis_boot\stm32f0xx.h"/>
+      </source>
+      <source file="..\..\..\stm32_lib\src\stm32f0xx_i2c.c" lastModified="147d09230b1">
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_i2c.h"/>
+         <include file="..\..\..\stm32_lib\inc\stm32f0xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f0xx.h" lastModified="147d0922ced">
+      </source>
+   </includePath>
+</dependencies>
