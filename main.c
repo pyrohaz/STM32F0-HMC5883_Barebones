@@ -1,3 +1,36 @@
+/*
+ * A test program for the HMC5883 magnetic sensor
+ * for the STM32F0 Discovery board. Updated license!
+ *
+ * Author: Harris Shallcross
+ * Year: 13/11/2015
+ *
+ *
+ *Code and example descriptions can be found on my blog at:
+ *www.hsel.co.uk
+ *
+ *The MIT License (MIT)
+ *Copyright (c) 2015 Harris Shallcross
+ *
+ *Permission is hereby granted, free of charge, to any person obtaining a copy
+ *of this software and associated documentation files (the "Software"), to deal
+ *in the Software without restriction, including without limitation the rights
+ *to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *copies of the Software, and to permit persons to whom the Software is
+ *furnished to do so, subject to the following conditions:
+ *
+ *The above copyright notice and this permission notice shall be included in all
+ *copies or substantial portions of the Software.
+ *
+ *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *SOFTWARE.
+ */
+
 #include <stm32f0xx_gpio.h>
 #include <stm32f0xx_rcc.h>
 #include <stm32f0xx_i2c.h>
@@ -35,11 +68,12 @@ void I2C_WrReg(uint8_t Reg, uint8_t Val){
 	//Wait until I2C isn't busy
 	while(I2C_GetFlagStatus(HMC_I2C, I2C_FLAG_BUSY) == SET);
 
-	//"Handle" a transfer - The STM32F0 series has a shocking I2C interface...
-	//...Regardless! Send the address of the HMC sensor down the I2C Bus and generate
-	//a start saying we're going to write one byte. I'll be completely honest,
-	//the I2C peripheral doesn't make too much sense to me and a lot of the code is
-	//from the Std peripheral library
+	//"Handle" a transfer - The STM32F0 series has a shocking
+	//I2C interface... Regardless! Send the address of the HMC
+	//sensor down the I2C Bus and generate a start saying we're
+	//going to write one byte. I'll be completely honest,
+	//the I2C peripheral doesn't make too much sense to me
+	//and a lot of the code is from the Std peripheral library
 	I2C_TransferHandling(HMC_I2C, HMCAddr, 1, I2C_Reload_Mode, I2C_Generate_Start_Write);
 
 	//Ensure the transmit interrupted flag is set
@@ -48,12 +82,14 @@ void I2C_WrReg(uint8_t Reg, uint8_t Val){
 	//Send the address of the register we wish to write to
 	I2C_SendData(HMC_I2C, Reg);
 
-	//Ensure that the transfer complete reload flag is Set, essentially a standard
-	//TC flag
+	//Ensure that the transfer complete reload flag is
+	//set, essentially a standard TC flag
 	while(I2C_GetFlagStatus(HMC_I2C, I2C_FLAG_TCR) == RESET);
 
-	//Now that the HMC5883L knows which register we want to write to, send the address
-	//again and ensure the I2C peripheral doesn't add any start or stop conditions
+	//Now that the HMC5883L knows which register
+	//we want to write to, send the address again
+	//and ensure the I2C peripheral doesn't add
+	//any start or stop conditions
 	I2C_TransferHandling(HMC_I2C, HMCAddr, 1, I2C_AutoEnd_Mode, I2C_No_StartStop);
 
 	//Again, wait until the transmit interrupted flag is set
@@ -62,7 +98,8 @@ void I2C_WrReg(uint8_t Reg, uint8_t Val){
 	//Send the value you wish you write to the register
 	I2C_SendData(HMC_I2C, Val);
 
-	//Wait for the stop flag to be set indicating a stop condition has been sent
+	//Wait for the stop flag to be set indicating
+	//a stop condition has been sent
 	while(I2C_GetFlagStatus(HMC_I2C, I2C_FLAG_STOPF) == RESET);
 
 	//Clear the stop flag for the next potential transfer
@@ -70,19 +107,22 @@ void I2C_WrReg(uint8_t Reg, uint8_t Val){
 }
 
 
-//We're really fortunate with the HMC5883L as it automatically increments the internal register
-//counter with every read so we need to set the internal register pointer to the first data
-//register (the X value register) and just read the next 6 piece of data, X1, X2, Z1, Z2
-//Y1, Y2 and voila! We have the compass values!
+//We're really fortunate with the HMC5883L as it automatically
+//increments the internal register counter with every read
+//so we need to set the internal register pointer to the first data
+//register (the X value register) and just read the next 6 pieces
+//of data, X1, X2, Z1, Z2 Y1, Y2 and
+//voila! We have the compass values!
 uint8_t I2C_RdReg(int8_t Reg, int8_t *Data, uint8_t DCnt){
 	int8_t Cnt, SingleData = 0;
 
 	//As per, ensure the I2C peripheral isn't busy!
 	while(I2C_GetFlagStatus(HMC_I2C, I2C_FLAG_BUSY) == SET);
 
-	//Again, start another tranfer using the "transfer handling" function, the end bit
-	//being set in software this time round, generate a start condition and indicate
-	//you will be writing data to the HMC device.
+	//Again, start another tranfer using the "transfer handling"
+	//function, the end bit being set in software this time
+	//round, generate a start condition and indicate you will
+	//be writing data to the HMC device.
 	I2C_TransferHandling(HMC_I2C, HMCAddr, 1, I2C_SoftEnd_Mode, I2C_Generate_Start_Write);
 
 	//Wait until the transmit interrupt status is set
@@ -94,8 +134,9 @@ uint8_t I2C_RdReg(int8_t Reg, int8_t *Data, uint8_t DCnt){
 	//Wait until transfer is complete!
 	while(I2C_GetFlagStatus(HMC_I2C, I2C_FLAG_TC) == RESET);
 
-	//As per, start another transfer, we want to read DCnt amount of bytes. Generate
-	//a start condition and indicate that we want to read.
+	//As per, start another transfer, we want to read DCnt
+	//amount of bytes. Generate a start condition and
+	//indicate that we want to read.
 	I2C_TransferHandling(HMC_I2C, HMCAddr, DCnt, I2C_AutoEnd_Mode, I2C_Generate_Start_Read);
 
 	//Read in DCnt pieces of data
@@ -116,7 +157,8 @@ uint8_t I2C_RdReg(int8_t Reg, int8_t *Data, uint8_t DCnt){
 	//Clear the stop flag for next transfers
 	I2C_ClearFlag(HMC_I2C, I2C_FLAG_STOPF);
 
-	//Return a single piece of data if DCnt was less than 1, otherwise 0 will be returned.
+	//Return a single piece of data if DCnt was
+	//less than 1, otherwise 0 will be returned.
 	return SingleData;
 }
 
@@ -126,9 +168,10 @@ void SysTick_Handler(void){
 	MSec++;
 }
 
-//Standard delay function as described in one of my previous tutorials!
-//All it does is operate a nop instruction until "Time" amount of
-//milliseconds has passed.
+//Standard delay function as described in one
+//of my previous tutorials!
+//All it does is operate a nop instruction
+//until "Time" amount of milliseconds has passed.
 void Delay(uint32_t Time){
 	volatile uint32_t MSStart = MSec;
 	while((MSec-MSStart)<Time) asm volatile("nop");
@@ -155,10 +198,11 @@ int main(void)
 	GPIO_PinAFConfig(HMC_GPIO, HMC_SDA_PS, HMC_PIN_AF);
 	GPIO_PinAFConfig(HMC_GPIO, HMC_SCL_PS, HMC_PIN_AF);
 
-	//Setup the I2C struct. The timing variable is acquired from the
-	//STM32F0 I2C timing calculator sheet. Pretty standard stuff really,
-	//its using the Analog filter to clean up any noisy edges (not really
-	//required though if you wish to disable it, you will need a different
+	//Setup the I2C struct. The timing variable is acquired
+	//from the STM32F0 I2C timing calculator sheet. Pretty
+	//standard stuff really, its using the Analog filter
+	//to clean up any noisy edges (not really required though
+	//if you wish to disable it, you will need a different
 	//I2C_Timing value).
 	IT.I2C_Ack = I2C_Ack_Enable;
 	IT.I2C_AnalogFilter = I2C_AnalogFilter_Enable;

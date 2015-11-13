@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F051R8 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\HMC5883L2\cmsis_boot -I..\..\..\workspace\HMC5883L2\cmsis_core -I..\..\..\workspace -I..\..\..\workspace\HMC5883L2\stm32_lib\inc -I..\..\..\workspace\HMC5883L2\stm32_lib -I..\..\..\workspace\HMC5883L2">
-      <target file="stm32f0xx_i2c.o" lastModified="147d0bad48b">
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m0 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F051R8 -DSTM32F0XX_MD -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\workspace\HMC5883L2\STM32F0-HMC5883_Barebones\cmsis_boot -I..\..\..\workspace\HMC5883L2\STM32F0-HMC5883_Barebones\cmsis_core -I..\..\..\workspace\HMC5883L2\STM32F0-HMC5883_Barebones\stm32_lib -I..\..\..\workspace\HMC5883L2 -I..\..\..\workspace\HMC5883L2\STM32F0-HMC5883_Barebones -I..\..\..\workspace\HMC5883L2\STM32F0-HMC5883_Barebones\stm32_lib\inc">
+      <target file="stm32f0xx_i2c.o" lastModified="147d11aceb3">
          <source file="..\..\..\stm32_lib\src\stm32f0xx_i2c.c" lastModified="147d09230b1"/>
       </target>
-      <target file="stm32f0xx_gpio.o" lastModified="147d0bad735">
+      <target file="stm32f0xx_gpio.o" lastModified="147d11ad1ae">
          <source file="..\..\..\stm32_lib\src\stm32f0xx_gpio.c" lastModified="147d0922cc7"/>
       </target>
-      <target file="stm32f0xx_rcc.o" lastModified="147d0bad183">
+      <target file="stm32f0xx_rcc.o" lastModified="147d11acaab">
          <source file="..\..\..\stm32_lib\src\stm32f0xx_rcc.c" lastModified="147d0922ce2"/>
       </target>
-      <target file="system_stm32f0xx_temp.o" lastModified="147d0bad5c7">
+      <target file="system_stm32f0xx_temp.o" lastModified="147d11acff2">
          <source file="..\..\..\cmsis_boot\system_stm32f0xx_temp.c" lastModified="147d0922cee"/>
       </target>
-      <target file="main.o" lastModified="147d0e3da6d">
-         <source file="..\..\..\main.c" lastModified="147d0e3d61f"/>
+      <target file="startup_stm32f0xx.o" lastModified="147d11b7396">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="147d11b6921"/>
       </target>
-      <target file="startup_stm32f0xx.o" lastModified="147d09d38f0">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f0xx.s" lastModified="147d0922ce7"/>
+      <target file="main.o" lastModified="147d11acc3b">
+         <source file="..\..\..\main.c" lastModified="147d1086e26"/>
       </target>
    </processor>
 </history>

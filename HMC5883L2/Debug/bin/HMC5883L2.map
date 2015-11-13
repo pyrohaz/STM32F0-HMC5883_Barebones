@@ -438,13 +438,13 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2014q2/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(HMC5883L2.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x2786
+.debug_info     0x00000000     0x27ba
  .debug_info    0x00000000      0x99a ..\obj\stm32f0xx_rcc.o
  .debug_info    0x0000099a      0x8d4 ..\obj\main.o
- .debug_info    0x0000126e       0xa7 ..\obj\startup_stm32f0xx.o
- .debug_info    0x00001315      0xbb3 ..\obj\stm32f0xx_i2c.o
- .debug_info    0x00001ec8      0x2ef ..\obj\system_stm32f0xx_temp.o
- .debug_info    0x000021b7      0x5cf ..\obj\stm32f0xx_gpio.o
+ .debug_info    0x0000126e       0xdb ..\obj\startup_stm32f0xx.o
+ .debug_info    0x00001349      0xbb3 ..\obj\stm32f0xx_i2c.o
+ .debug_info    0x00001efc      0x2ef ..\obj\system_stm32f0xx_temp.o
+ .debug_info    0x000021eb      0x5cf ..\obj\stm32f0xx_gpio.o
 
 .debug_abbrev   0x00000000      0x882
  .debug_abbrev  0x00000000      0x1ec ..\obj\stm32f0xx_rcc.o
@@ -476,25 +476,25 @@ OUTPUT(HMC5883L2.elf elf32-littlearm)
  .debug_ranges  0x000002f8       0x20 ..\obj\system_stm32f0xx_temp.o
  .debug_ranges  0x00000318       0x70 ..\obj\stm32f0xx_gpio.o
 
-.debug_line     0x00000000     0x12bd
- .debug_line    0x00000000      0x506 ..\obj\stm32f0xx_rcc.o
- .debug_line    0x00000506      0x341 ..\obj\main.o
- .debug_line    0x00000847       0xac ..\obj\startup_stm32f0xx.o
- .debug_line    0x000008f3      0x52f ..\obj\stm32f0xx_i2c.o
- .debug_line    0x00000e22      0x1ba ..\obj\system_stm32f0xx_temp.o
- .debug_line    0x00000fdc      0x2e1 ..\obj\stm32f0xx_gpio.o
+.debug_line     0x00000000     0x1443
+ .debug_line    0x00000000      0x554 ..\obj\stm32f0xx_rcc.o
+ .debug_line    0x00000554      0x3a9 ..\obj\main.o
+ .debug_line    0x000008fd       0xc6 ..\obj\startup_stm32f0xx.o
+ .debug_line    0x000009c3      0x57d ..\obj\stm32f0xx_i2c.o
+ .debug_line    0x00000f40      0x1d4 ..\obj\system_stm32f0xx_temp.o
+ .debug_line    0x00001114      0x32f ..\obj\stm32f0xx_gpio.o
 
-.debug_str      0x00000000     0x1223
- .debug_str     0x00000000      0x683 ..\obj\stm32f0xx_rcc.o
-                                0x71c (size before relaxing)
- .debug_str     0x00000683      0x598 ..\obj\main.o
-                                0x709 (size before relaxing)
- .debug_str     0x00000c1b      0x3e1 ..\obj\stm32f0xx_i2c.o
-                                0x631 (size before relaxing)
- .debug_str     0x00000ffc       0x9b ..\obj\system_stm32f0xx_temp.o
-                                0x293 (size before relaxing)
- .debug_str     0x00001097      0x18c ..\obj\stm32f0xx_gpio.o
-                                0x483 (size before relaxing)
+.debug_str      0x00000000     0x12a5
+ .debug_str     0x00000000      0x69d ..\obj\stm32f0xx_rcc.o
+                                0x736 (size before relaxing)
+ .debug_str     0x0000069d      0x5b2 ..\obj\main.o
+                                0x723 (size before relaxing)
+ .debug_str     0x00000c4f      0x3fb ..\obj\stm32f0xx_i2c.o
+                                0x64b (size before relaxing)
+ .debug_str     0x0000104a       0xb5 ..\obj\system_stm32f0xx_temp.o
+                                0x2ad (size before relaxing)
+ .debug_str     0x000010ff      0x1a6 ..\obj\stm32f0xx_gpio.o
+                                0x49d (size before relaxing)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\stm32f0xx_rcc.o

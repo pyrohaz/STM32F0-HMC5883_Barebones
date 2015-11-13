@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="4.4.1 -mcpu=cortex-m0 -mthumb -g -nostartfiles -Map=HMC5883L2.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\HMC5883L2 -TC:\CooCox\CoIDE\configuration\ProgramData\HMC5883L2/arm-gcc-link.ld -g">
-      <target file="HMC5883L2.elf" lastModified="147d0e3de4d">
-         <source file="..\obj\stm32f0xx_rcc.o" lastModified="147d0bad183"/>
-         <source file="..\obj\main.o" lastModified="147d0e3da6d"/>
-         <source file="..\obj\startup_stm32f0xx.o" lastModified="147d09d38f0"/>
-         <source file="..\obj\stm32f0xx_i2c.o" lastModified="147d0bad48b"/>
-         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="147d0bad5c7"/>
-         <source file="..\obj\stm32f0xx_gpio.o" lastModified="147d0bad735"/>
+      <target file="HMC5883L2.elf" lastModified="147d11b775b">
+         <source file="..\obj\stm32f0xx_rcc.o" lastModified="147d11acaab"/>
+         <source file="..\obj\main.o" lastModified="147d11acc3b"/>
+         <source file="..\obj\startup_stm32f0xx.o" lastModified="147d11b7396"/>
+         <source file="..\obj\stm32f0xx_i2c.o" lastModified="147d11aceb3"/>
+         <source file="..\obj\system_stm32f0xx_temp.o" lastModified="147d11acff2"/>
+         <source file="..\obj\stm32f0xx_gpio.o" lastModified="147d11ad1ae"/>
       </target>
    </processor>
 </history>
